@@ -1,0 +1,109 @@
+<html xmlns:th="http://www.w3.org/1999/xhtml">
+
+<!--<%@ page import="Model.Post" %>-->
+<!--<%@ page import="java.util.ArrayList" %>-->
+<!--<%@ page import="java.util.List" %>-->
+<!--<%@ page import="Model.Comment" %>-->
+<!--<%@ page import="java.util.Map" %><%&#45;&#45;-->
+<!--&lt;!&ndash;Created by IntelliJ IDEA.&ndash;&gt;-->
+<!--&lt;!&ndash;User: Mondris&ndash;&gt;-->
+<!--&lt;!&ndash;Date: 8/30/2020&ndash;&gt;-->
+<!--&lt;!&ndash;Time: 10:28 PM&ndash;&gt;-->
+<!--&lt;!&ndash;To change this template use File | Settings | File Templates.&ndash;&gt;-->
+<!--&#45;&#45;%>-->
+<!--<%@ page contentType="text/html;charset=UTF-8" language="java" %>-->
+
+<!--&lt;!&ndash;<%&ndash;&gt;-->
+<!--&lt;!&ndash;Map<Post, List<Comment>>posts = (Map<Post, List<Comment>>) request.getAttribute("userPosts");&ndash;&gt;-->
+<!--&lt;!&ndash;    pageContext.setAttribute("posts", posts);&ndash;&gt;-->
+<!--&lt;!&ndash;    %>&ndash;&gt;-->
+<head>
+    <title>Welcome To DashBoard - Posts</title>
+    <!-- CSS only -->
+    <link rel="stylesheet" th:href="@{dashboard.css}" href="dashboard.css" type="text/css"/>
+
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/twitter-bootstrap/4.5.2/css/bootstrap.min.css">
+
+</head>
+<body>
+<h1>Welcome to dashboard </h1>
+
+<nav class="navbar navbar-expand-lg navbar-light bg-light">
+    <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarTogglerDemo01"
+            aria-controls="navbarTogglerDemo01" aria-expanded="false" aria-label="Toggle navigation">
+        <span class="navbar-toggler-icon"></span>
+    </button>
+    <div class="collapse navbar-collapse" id="navbarTogglerDemo01">
+        <a class="navbar-brand" href="#"><img
+                src="https://www.freeiconspng.com/uploads/facebook-f-logo-white-background-21.jpg" width="40"
+                height="30" alt="facebook f logo white background"/></a>
+
+        <form id="searchBar" class="form-inline my-2 my-lg-0">
+            <input class="form-control mr-sm-2" type="search" placeholder="Search" aria-label="Search">
+            <button class="btn btn-outline-success my-2 my-sm-0" type="submit">Search</button>
+        </form>
+        <ul class="navbar-nav mr-auto mt-2 mt-lg-0">
+            <li class="nav-item active">
+                <a class="nav-link" href="#">Home <span class="sr-only">(current)</span></a>
+            </li>
+            <li class="nav-item">
+                <a class="nav-link" href="#">Messages</a>
+            </li>
+            <li class="nav-item">
+                <a class="nav-link " href="#" tabindex="-1">My Profile</a>
+            </li>
+            <li class="nav-item">
+                <a class="nav-link " href="#" tabindex="-1">Friends</a>
+            </li>
+        </ul>
+    </div>
+</nav>
+
+<div id="myfriends-right-hand" class="card" style="width: 18rem;">
+    <img src="..." class="card-img-top" alt="...">
+    <div class="card-body">
+        <h5 class="card-title">My Friends</h5>
+        <ul class="list-group list-group-flush">
+            <li class="list-group-item">Cras justo odio <a href="#">view</a></li>
+            <li class="list-group-item">Dapibus ac facilisis in <a href="#">view</a></li>
+            <li class="list-group-item">Vestibulum at eros <a href="#">view</a></li>
+            <li class="list-group-item">Cras justo odio <a href="#">view</a></li>
+            <li class="list-group-item">Dapibus ac facilisis in <a href="#">view</a></li>
+            <li class="list-group-item">Vestibulum at eros <a href="#">view</a></li>
+            <li class="list-group-item">Cras justo odio <a href="#">view</a></li>
+            <li class="list-group-item">Dapibus ac facilisis in <a href="#">view</a></li>
+            <li class="list-group-item">Vestibulum at eros <a href="#">view</a></li>
+        </ul>
+    </div>
+
+</div>
+<div id="postSection">
+    <div class="form-group shadow-textarea">
+        <form th:action="@{/edit}"  th:object="${post}" method="post">
+            <label for="exampleFormControlTextarea6">Create a Post</label>
+            <textarea required class="form-control z-depth-1" id="exampleFormControlTextarea6" rows="3"
+                      name="postMessage"
+                      placeholder="Whats On Your Mind?" th:field="*{message}" th:text="${post.message}">txtx</textarea>
+            <input type="text" th:field="*{postID}" hidden>
+            <button type="submit" class="btn btn-secondary btn-sm">Update</button>
+        </form>
+    </div>
+</div>
+
+
+<script src="https://code.jquery.com/jquery-3.5.1.slim.min.js"
+        integrity="sha384-DfXdz2htPH0lsSSs5nCTpuj/zy4C+OGpamoFVy38MVBnE+IbbVYUew+OrCXaRkfj"
+        crossorigin="anonymous"></script>
+<script src="https://cdn.jsdelivr.net/npm/popper.js@1.16.1/dist/umd/popper.min.js"
+        integrity="sha384-9/reFTGAW83EW2RDu2S0VKaIzap3H66lZH81PoYlFhbGU+6BZp6G7niu735Sk7lN"
+        crossorigin="anonymous"></script>
+<script src="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/js/bootstrap.min.js"
+        integrity="sha384-B4gt1jrGC7Jh4AgTPSdUtOBvfO8shuf57BaghqFfPlYxofvL8/KUEfYiJOMMV+rV"
+        crossorigin="anonymous"></script>
+<link href="https://maxcdn.bootstrapcdn.com/font-awesome/4.3.0/css/font-awesome.min.css" rel="stylesheet">
+
+<script src="http://code.jquery.com/jquery-1.10.2.min.js"></script>
+<script src="http://netdna.bootstrapcdn.com/bootstrap/4.1.1/js/bootstrap.min.js"></script>
+
+</body>
+</html>

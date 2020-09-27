@@ -1,0 +1,21 @@
+<!DOCTYPE html>
+<html lang="en" xmlns:th="http://www.w3.org/1999/xhtml">
+<head>
+    <meta charset="UTF-8">
+    <title>Welcome To Sign Up Page</title>
+</head>
+<body>
+<form th:action="@{/signup}" method="post" th:object="${users}">
+    <input type="text" th:namename="firstName" placeholder="Enter First Name"><br>
+    <input type="text" name="lastName" placeholder="Enter Last name"><br>
+    <Select name="gender">
+        <option>Select Gender</option>
+        <option>Male</option>
+        <option>Female</option>
+    </Select><br>
+    <input type="text" name="address" placeholder="enter address"><br>
+    <input type="text" name="nationality" placeholder="enter Nationality"><br>
+    <input type="submit" value="Submit">
+</form>
+</body>
+</html>
